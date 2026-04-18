@@ -97,6 +97,19 @@
   }
   .meta-item:hover { color: var(--link); text-decoration: none; }
 
+  .resume-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.8125rem;
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--gray-700);
+    background: var(--off);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .resume-btn:hover { border-color: var(--link); color: var(--link); text-decoration: none; }
+
   /* MAIN GRID */
   .main {
     display: grid;
@@ -162,7 +175,22 @@
     content: '·'; position: absolute; left: 3px;
     color: var(--gray-300); font-weight: 700; font-size: 1.1rem; line-height: 1.5;
   }
-  .entry-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+  .entry-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; align-items: center; }
+
+  .report-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    padding: 2px 9px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--link);
+    background: var(--off);
+    text-decoration: none;
+    margin: 2px 0;
+    transition: border-color 0.15s;
+  }
+  .report-link:hover { border-color: var(--link); text-decoration: none; }
 
   /* ACHIEVEMENTS */
   .ach-item {
@@ -208,6 +236,13 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="https://drive.google.com/file/d/1Gf3k9eOQti6pJdnwZ1R3k-9T0ZePbZKE/view?usp=sharing"
+             target="_blank" class="resume-btn">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Zm-1-5.573 3.25 3.25a.75.75 0 0 0 1.06 0L9.31 8.427A.75.75 0 0 0 8.25 7.5H6.75V2.75a.75.75 0 0 0-1.5 0V7.5H3.75a.75.75 0 0 0-.53 1.28l-.47-.353Z"/></svg>
+            Resume
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -237,11 +272,11 @@
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.062 4.203c.428-1.048 1.67-1.498 2.72-1.06l1.037.44a1.75 1.75 0 0 1 1.01 2.028l-.59 2.23a.25.25 0 0 0 .127.284l.793.397a4.5 4.5 0 0 0 2 .5h.001l.014-.001a.25.25 0 0 0 .246-.205l.09-.539a1.75 1.75 0 0 1 2.218-1.373l1.076.323a1.75 1.75 0 0 1 1.188 2.075l-.437 1.748C13.242 12.662 11.597 14 9.688 14 5.438 14 2 10.562 2 6.312c0-.743.11-1.46.316-2.137l.746.028Z"/></svg>
             +91-8309276282
           </a>
-          <a href="https://www.linkedin.com/in/jyothsna-kandarpa/" class="meta-item">
+          <a href="https://www.linkedin.com/in/jyothsna-kandarpa/" target="_blank" class="meta-item">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
             LinkedIn
           </a>
-          <a href="https://github.com/jypkaa" class="meta-item">
+          <a href="https://github.com/jypkaa" target="_blank" class="meta-item">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub
           </a>
@@ -314,6 +349,11 @@
             <span class="pill">Quantum Optics</span>
             <span class="pill">Photon Entanglement</span>
             <span class="pill">Optical Instrumentation</span>
+            <a href="https://github.com/jypkaa/Entanglement-characterisation---summer-internship/blob/main/Jyothsna_Final_internship_report%20(2).pdf"
+               target="_blank" class="report-link">
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6H9.75A1.75 1.75 0 0 1 8 4.25V1.5H3.75Zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06ZM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25V1.75Z"/></svg>
+              Internship Report
+            </a>
           </div>
         </div>
 
@@ -416,7 +456,7 @@
           <svg class="ach-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 14.25c0 .138.112.25.25.25H4v-1.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v1.25h2.25a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25v12.5ZM3.75 6h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Zm0 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Zm3-3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Zm0 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"/></svg>
           <div class="ach-text"><strong>Project Head, CodeQuest</strong> — led ML projects across multiple teams for the 3-club joint fest at NITW (Jun 2024)</div>
         </div>
-   
+
       </section>
 
     </main>
