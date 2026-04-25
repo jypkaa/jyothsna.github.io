@@ -317,6 +317,7 @@
     padding: 10px 18px 14px;
     display: flex; flex-wrap: wrap; gap: 5px;
     border-top: 1px solid var(--border);
+    align-items: center;
   }
 
   /* ── ACHIEVEMENTS ── */
@@ -375,7 +376,6 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    
     <li><a href="https://drive.google.com/file/d/1Gf3k9eOQti6pJdnwZ1R3k-9T0ZePbZKE/view?usp=sharing" target="_blank" class="cv-link">Resume</a></li>
   </ul>
 </nav>
@@ -435,7 +435,6 @@
       <div class="edu-school">NIT Warangal</div>
       <div class="edu-year">2023 – Present</div>
     </div>
-    
 
   </aside>
 
@@ -463,7 +462,6 @@
             <span class="spill">Python</span>
             <span class="spill">Verilog</span>
             <span class="spill">MATLAB</span>
-            
           </div>
         </div>
         <div class="skill-block">
@@ -471,8 +469,8 @@
           <div class="skill-pills">
             <span class="spill">Xilinx Vivado</span>
             <span class="spill">LTSPICE</span>
-           <span class="spill">Cadence</span>
-           <span class="spill">Advanced Design System</span>
+            <span class="spill">Cadence</span>
+            <span class="spill">Advanced Design System</span>
           </div>
         </div>
         <div class="skill-block">
@@ -483,9 +481,8 @@
             <span class="spill">CMOS VLSI</span>
             <span class="spill">Digital Circuits</span>
             <span class="spill">DSP</span>
-            <span class="spill">Embedded and Real Time 
-Operating Systems </span>
-           <span class="spill">Data Networks</span>
+            <span class="spill">Embedded and Real Time Operating Systems</span>
+            <span class="spill">Data Networks</span>
           </div>
         </div>
       </div>
@@ -546,6 +543,26 @@ Operating Systems </span>
       <h2 class="section-heading">Projects</h2>
       <div class="projects-grid">
 
+        <!-- RFIC PROJECT — added at top -->
+        <div class="project-card">
+          <div class="project-card-body">
+            <div class="project-tech">RFIC · ADS · SiGe HBT</div>
+            <div class="project-title">Integer PLL — VCO & Charge Pump (L-band)</div>
+            <div class="project-desc">Designed and simulated a VCO and charge pump for an Integer-N PLL targeting 1.1–1.5 GHz (L-band) using Keysight ADS. The LC-tank VCO with varactor tuning achieved a 301 MHz tuning range and oscillation at 1.282 GHz, with phase noise of −120 dBc/Hz at 1 kHz — well below the −85 dBc/Hz spec.</div>
+          </div>
+          <div class="project-card-footer">
+            <span class="tag">PLL</span>
+            <span class="tag">VCO</span>
+            <span class="tag">Charge Pump</span>
+            <span class="tag">ADS</span>
+            <a href="https://drive.google.com/file/d/1pMSlum6Lv61E90CHqbSfUBiKA7VCjfhm/view?usp=sharing"
+               target="_blank" class="doc-link">
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6H9.75A1.75 1.75 0 0 1 8 4.25V1.5H3.75Zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06ZM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25V1.75Z"/></svg>
+              Project Report
+            </a>
+          </div>
+        </div>
+
         <div class="project-card">
           <div class="project-card-body">
             <div class="project-tech">Verilog · FPGA</div>
@@ -559,8 +576,6 @@ Operating Systems </span>
           </div>
         </div>
 
-    
-
         <div class="project-card">
           <div class="project-card-body">
             <div class="project-tech">Machine Learning · KNIME</div>
@@ -573,6 +588,10 @@ Operating Systems </span>
             <span class="tag">Data Analysis</span>
           </div>
         </div>
+
+      </div>
+    </section>
+
   </main>
 </div>
 
