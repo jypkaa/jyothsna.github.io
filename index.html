@@ -4,654 +4,378 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Jyothsna Padma Kandarpa</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #ffffff;
-    --white: #ffffff;
-    --sidebar-bg: #ffffff;
-    --sidebar-text: #444;
-    --sidebar-muted: #888;
-    --accent: #4a7c59;
-    --accent-light: #e8f0ea;
-    --black: #111;
-    --gray-700: #444;
-    --gray-500: #777;
-    --gray-300: #ccc;
-    --border: #e4e4e0;
-    --card-bg: #ffffff;
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#ffffff;
+    --ink:#181b1a;
+    --muted:#6b7280;
+    --muted-2:#94989c;
+    --accent:#2f8f74;
+    --accent-dark:#20745d;
+    --accent-tint:#e7f4f0;
+    --border:#e7e9ec;
+    --shadow:0 4px 18px rgba(20,30,25,0.06);
   }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Roboto',system-ui,sans-serif;color:var(--ink);line-height:1.7;background:var(--bg);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.brand{font-family:'Montserrat',sans-serif;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-dark);}
+  .container{max-width:1080px;margin:0 auto;padding:0 28px;}
 
-  html { scroll-behavior: smooth; }
+  /* NAV */
+  .navbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);height:64px;}
+  .navbar .container{height:100%;display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-weight:700;font-size:0.95rem;letter-spacing:0.02em;color:var(--ink);}
+  .nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+  .nav-links a{font-size:0.82rem;font-weight:500;color:var(--muted);padding:8px 12px;border-radius:6px;transition:.15s;}
+  .nav-links a:hover{color:var(--ink);background:#f3f4f5;}
+  .nav-links .resume-btn{color:var(--accent);border:1px solid var(--accent);margin-left:6px;}
+  .nav-links .resume-btn:hover{background:var(--accent);color:#fff;}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.2rem;color:var(--ink);cursor:pointer;}
 
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--black);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
+  main{padding-top:64px;}
+  section{padding:72px 0;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
 
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+  .row{display:flex;gap:48px;flex-wrap:wrap;}
 
-  /* ── TOP NAV ── */
-  .topnav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: #ffffff;
-    border-bottom: 1px solid var(--border);
-    height: 48px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 28px;
-  }
+  /* ABOUT */
+  .profile-col{flex:0 0 270px;}
+  .profile-photo{width:170px;height:170px;border-radius:50%;overflow:hidden;border:4px solid var(--accent-tint);outline:2px solid var(--accent);margin:0 auto 20px;}
+  .profile-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .profile-name{font-size:1.2rem;font-weight:700;text-align:center;margin-bottom:6px;}
+  .profile-role{font-size:0.85rem;color:var(--muted);text-align:center;margin-bottom:4px;}
+  .profile-org{font-size:0.85rem;color:var(--accent);font-weight:600;text-align:center;margin-bottom:18px;}
+  .social-row{display:flex;justify-content:center;gap:14px;margin-top:16px;}
+  .social-row a{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:.15s;}
+  .social-row a:hover{color:#fff;background:var(--accent);border-color:var(--accent);}
 
-  .topnav-brand {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem; font-weight: 500;
-    color: var(--black); text-decoration: none; letter-spacing: 0.04em;
-  }
-  .topnav-brand:hover { text-decoration: none; color: var(--black); }
+  .about-col{flex:1 1 520px;min-width:280px;}
+  .about-col h1{font-size:1.5rem;margin-bottom:18px;}
+  .about-col p{font-size:0.94rem;color:#3a3f42;margin-bottom:14px;}
+  .about-sub-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:24px;}
+  .about-sub h3{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px;}
+  .interest-list{list-style:none;}
+  .interest-list li{font-size:0.88rem;padding:5px 0;display:flex;align-items:center;gap:9px;}
+  .interest-list i{color:var(--accent);width:14px;}
+  .edu-entry{display:flex;gap:12px;margin-bottom:14px;}
+  .edu-entry i{color:var(--accent);margin-top:3px;}
+  .edu-entry .course{font-size:0.88rem;font-weight:600;}
+  .edu-entry .inst{font-size:0.8rem;color:var(--muted);}
 
-  .topnav-links {
-    display: flex; gap: 6px; list-style: none;
-  }
+  /* SECTION HEADING SPLIT LAYOUT */
+  .split{display:flex;gap:48px;flex-wrap:wrap;}
+  .split-heading{flex:0 0 220px;}
+  .split-heading h1{font-size:1.4rem;position:sticky;top:90px;}
+  .split-body{flex:1 1 500px;min-width:280px;}
 
-  .topnav-links a {
-    font-size: 0.78rem; color: var(--gray-500);
-    padding: 4px 10px; border-radius: 4px;
-    text-decoration: none; transition: color 0.15s, background 0.15s;
-    letter-spacing: 0.02em;
-  }
-  .topnav-links a:hover { color: var(--black); background: #f5f5f5; text-decoration: none; }
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .skill-card{border:1px solid var(--border);border-radius:10px;padding:20px;transition:.15s;}
+  .skill-card:hover{box-shadow:var(--shadow);border-color:var(--accent-tint);}
+  .skill-card i{color:var(--accent);font-size:1.15rem;margin-bottom:10px;}
+  .skill-card h3{font-size:0.92rem;margin-bottom:8px;}
+  .skill-card p{font-size:0.83rem;color:var(--muted);line-height:1.6;}
 
-  .topnav-links .cv-link {
-    color: var(--accent);
-    border: 1px solid var(--accent);
-  }
-  .topnav-links .cv-link:hover { background: var(--accent); color: #fff; }
+  /* STREAM ITEMS (Projects / Experience / Achievements) */
+  .stream-item{border:1px solid var(--border);border-radius:10px;padding:24px 26px;margin-bottom:18px;transition:.15s;}
+  .stream-item:hover{box-shadow:var(--shadow);}
+  .stream-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:6px;margin-bottom:4px;}
+  .stream-title{font-size:1rem;font-weight:700;}
+  .stream-date{font-size:0.75rem;color:var(--muted-2);font-weight:500;white-space:nowrap;}
+  .stream-meta{font-size:0.83rem;color:var(--accent);font-weight:600;margin-bottom:12px;}
+  .stream-body p{font-size:0.88rem;color:#3a3f42;margin-bottom:8px;}
+  .stream-body ul{list-style:none;}
+  .stream-body li{font-size:0.88rem;color:#3a3f42;padding-left:16px;position:relative;margin-bottom:6px;}
+  .stream-body li::before{content:'▸';position:absolute;left:0;color:var(--accent);}
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .tag{font-size:0.68rem;background:var(--accent-tint);color:var(--accent-dark);border-radius:20px;padding:4px 11px;font-weight:600;}
+  .btn-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .btn-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:600;color:var(--accent-dark);border:1px solid var(--accent);border-radius:20px;padding:6px 14px;transition:.15s;}
+  .btn-link:hover{background:var(--accent);color:#fff;}
 
-  /* ── LAYOUT ── */
-  .layout {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    min-height: 100vh;
-    padding-top: 48px;
-  }
+  footer{padding:32px 0;text-align:center;font-size:0.8rem;color:var(--muted);}
+  footer a{color:var(--muted);}
+  #back-to-top{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--border);margin-top:14px;color:var(--muted);}
+  #back-to-top:hover{color:#fff;background:var(--accent);border-color:var(--accent);}
 
-  /* ── SIDEBAR ── */
-  .sidebar {
-    background: var(--sidebar-bg);
-    border-right: 1px solid var(--border);
-    padding: 40px 28px 60px;
-    position: sticky;
-    top: 48px;
-    height: calc(100vh - 48px);
-    overflow-y: auto;
-    scrollbar-width: none;
-  }
-  .sidebar::-webkit-scrollbar { display: none; }
-
-  .sidebar-photo {
-    width: 110px; height: 110px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
-    overflow: hidden;
-    margin: 0 auto 20px;
-    display: block;
-  }
-  .sidebar-photo img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-  }
-
-  .sidebar-name {
-    font-size: 1.1rem; font-weight: 600;
-    color: var(--black); text-align: center; margin-bottom: 4px;
-  }
-
-  .sidebar-role {
-    font-size: 0.8rem; color: var(--sidebar-muted);
-    text-align: center; margin-bottom: 4px; line-height: 1.5;
-  }
-
-  .sidebar-inst {
-    font-size: 0.78rem; color: var(--accent);
-    text-align: center; margin-bottom: 24px; font-weight: 500;
-  }
-
-  .sidebar-divider {
-    border: none; border-top: 1px solid var(--border);
-    margin: 20px 0;
-  }
-
-  .sidebar-section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--sidebar-muted);
-    margin-bottom: 10px;
-  }
-
-  .contact-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-
-  .contact-list a {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 0.78rem; color: var(--sidebar-text);
-    text-decoration: none; transition: color 0.15s;
-    word-break: break-all;
-  }
-  .contact-list a:hover { color: var(--accent); text-decoration: none; }
-
-  .contact-list svg { flex-shrink: 0; opacity: 0.6; }
-
-  .interest-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-
-  .interest-list li {
-    font-size: 0.8rem; color: var(--sidebar-text);
-    display: flex; align-items: center; gap: 7px;
-  }
-  .interest-list li::before {
-    content: ''; display: inline-block;
-    width: 5px; height: 5px; border-radius: 50%;
-    background: var(--accent); flex-shrink: 0;
-  }
-
-  .edu-item { margin-bottom: 14px; }
-  .edu-degree { font-size: 0.8rem; color: var(--sidebar-text); font-weight: 500; }
-  .edu-school { font-size: 0.75rem; color: var(--sidebar-muted); }
-  .edu-year { font-size: 0.72rem; color: var(--sidebar-muted); font-family: 'JetBrains Mono', monospace; }
-
-  /* ── MAIN ── */
-  .main {
-    padding: 48px 48px 80px;
-    max-width: 900px;
-  }
-
-  /* ── ABOUT ── */
-  .about-section {
-    margin-bottom: 56px;
-  }
-
-  .about-section p {
-    font-size: 0.9375rem;
-    color: var(--gray-700);
-    line-height: 1.8;
-    margin-bottom: 12px;
-  }
-
-  /* ── SECTION ── */
-  .section { margin-bottom: 56px; }
-
-  .section-heading {
-    font-size: 1.1rem; font-weight: 600;
-    color: var(--black);
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent);
-    margin-bottom: 28px;
-    display: flex; align-items: center; gap: 10px;
-  }
-
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-  }
-
-  .skill-block {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 18px;
-  }
-
-  .skill-block-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--accent); margin-bottom: 8px;
-  }
-
-  .skill-pills { display: flex; flex-wrap: wrap; gap: 5px; }
-
-  .spill {
-    font-size: 0.75rem; color: var(--gray-700);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2px 8px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* ── EXPERIENCE ── */
-  .exp-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 22px 24px;
-    margin-bottom: 16px;
-    transition: box-shadow 0.2s;
-  }
-  .exp-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-
-  .exp-header {
-    display: flex; justify-content: space-between;
-    align-items: flex-start; flex-wrap: wrap; gap: 6px;
-    margin-bottom: 4px;
-  }
-
-  .exp-title { font-size: 0.9375rem; font-weight: 600; color: var(--black); }
-
-  .exp-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--gray-500);
-    white-space: nowrap; padding-top: 2px;
-  }
-
-  .exp-org { font-size: 0.82rem; color: var(--accent); margin-bottom: 12px; font-weight: 500; }
-
-  .exp-body { font-size: 0.875rem; color: var(--gray-700); line-height: 1.7; }
-  .exp-body ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-  .exp-body li { padding-left: 14px; position: relative; }
-  .exp-body li::before {
-    content: '▸'; position: absolute; left: 0;
-    color: var(--accent); font-size: 0.7rem; line-height: 1.8;
-  }
-
-  .exp-footer {
-    display: flex; flex-wrap: wrap; align-items: center;
-    gap: 6px; margin-top: 14px;
-  }
-
-  .tag {
-    font-size: 0.68rem;
-    background: var(--accent-light);
-    color: var(--accent);
-    border-radius: 4px;
-    padding: 2px 8px;
-    font-weight: 500;
-  }
-
-  .doc-link {
-    display: inline-flex; align-items: center; gap: 4px;
-    font-size: 0.72rem; color: var(--gray-500);
-    border: 1px solid var(--border);
-    border-radius: 4px; padding: 2px 9px;
-    text-decoration: none; transition: color 0.15s, border-color 0.15s;
-    background: var(--white);
-  }
-  .doc-link:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
-
-  /* ── PROJECT CARDS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 18px;
-  }
-
-  .project-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: box-shadow 0.2s, transform 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .project-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.09); transform: translateY(-2px); }
-
-  .project-card-body { padding: 18px 18px 14px; flex: 1; }
-
-  .project-tech {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem; color: var(--accent);
-    text-transform: uppercase; letter-spacing: 0.08em;
-    margin-bottom: 6px;
-  }
-
-  .project-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--black); }
-
-  .project-desc { font-size: 0.82rem; color: var(--gray-700); line-height: 1.65; }
-
-  .project-card-footer {
-    padding: 10px 18px 14px;
-    display: flex; flex-wrap: wrap; gap: 5px;
-    border-top: 1px solid var(--border);
-    align-items: center;
-  }
-
-  /* ── ACHIEVEMENTS ── */
-  .ach-list { display: flex; flex-direction: column; gap: 0; }
-
-  .ach-item {
-    display: flex; gap: 14px; align-items: flex-start;
-    padding: 13px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.875rem;
-  }
-  .ach-item:first-child { padding-top: 0; }
-  .ach-item:last-child { border-bottom: none; }
-
-  .ach-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--accent); flex-shrink: 0;
-    margin-top: 7px;
-  }
-
-  .ach-text { color: var(--gray-700); line-height: 1.6; }
-  .ach-text strong { color: var(--black); font-weight: 600; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #ffffff;
-    border-top: 1px solid var(--border);
-    color: var(--gray-500);
-    text-align: center;
-    padding: 22px;
-    font-size: 0.78rem;
-  }
-  footer a { color: var(--gray-500); }
-  footer a:hover { color: var(--black); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 780px) {
-    .layout { grid-template-columns: 1fr; }
-    .sidebar {
-      position: static; height: auto;
-      padding: 32px 24px;
-    }
-    .main { padding: 32px 20px 60px; }
-    .topnav-links { gap: 2px; }
-    .topnav-links a { padding: 4px 6px; font-size: 0.72rem; }
+  @media (max-width: 820px){
+    .split-heading{flex:1 1 100%;}
+    .split-heading h1{position:static;}
+    .profile-col{flex:1 1 100%;}
+    .nav-links{position:fixed;top:64px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 20px 20px;border-bottom:1px solid var(--border);display:none;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:10px 8px;}
+    .nav-toggle{display:block;}
   }
 </style>
 </head>
 <body>
 
-<!-- TOP NAV -->
-<nav class="topnav">
-  <a href="#" class="topnav-brand">jyothsna-k</a>
-  <ul class="topnav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="https://drive.google.com/file/d/13NK42yt0CVvvoh4MalGaHaZrzo4K1XrT/view?usp=sharing" target="_blank" class="cv-link">Resume</a></li>
-  </ul>
+<nav class="navbar">
+  <div class="container">
+    <a href="#" class="brand">jyothsna-k</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="https://drive.google.com/file/d/13NK42yt0CVvvoh4MalGaHaZrzo4K1XrT/view?usp=sharing" target="_blank" class="resume-btn">Resume</a></li>
+    </ul>
+  </div>
 </nav>
 
-<div class="layout">
+<main>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="profile-col">
+          <div class="profile-photo"><img src="jyo.jpeg" alt="Jyothsna Padma Kandarpa"></div>
+          <div class="profile-name">Jyothsna Padma Kandarpa</div>
+          <div class="profile-role">B.Tech &middot; Electronics &amp; Communication Engineering</div>
+          <div class="profile-org">NIT Warangal</div>
+          <div class="social-row">
+            <a href="mailto:jp23ecb0f01@student.nitw.ac.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/jyothsna-kandarpa/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/jypkaa" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
 
-    <div class="sidebar-photo">
-      <img src="jyo.jpeg" alt="Jyothsna Padma Kandarpa">
+        <div class="about-col">
+          <h1>About me</h1>
+          <p>Hello! I'm a final-year Electronics and Communication Engineering student at <strong>NIT Warangal</strong>, focused on VLSI and digital design &mdash; from RTL to physical implementation. I'm drawn to the layers where digital architecture meets real silicon constraints, and enjoy working across digital IC design, verification, and physical design flows.</p>
+          <p>My work spans across designing IC's, writing verilog codes and implementing on FPGA. Outside the lab, I lead technical initiatives, stargaze through telescopes, and keep learning because the curiosity never stops.</p>
+
+          <div class="about-sub-row">
+            <div class="about-sub">
+              <h3>Interests</h3>
+              <ul class="interest-list">
+                <li><i class="fas fa-microchip"></i>VLSI Design</li>
+                <li><i class="fas fa-satellite-dish"></i>RFIC</li>
+                <li><i class="fas fa-server"></i>Computer Architecture</li>
+                <li><i class="fas fa-layer-group"></i>RISC-V</li>
+              </ul>
+            </div>
+            <div class="about-sub">
+              <h3>Education</h3>
+              <div class="edu-entry">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <div class="course">B.Tech, ECE</div>
+                  <div class="inst">NIT Warangal &middot; 2023 &ndash; Present</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <p class="sidebar-name">Jyothsna Padma Kandarpa</p>
-    <p class="sidebar-role">B.Tech · Electronics & Communication Engineering</p>
-    <p class="sidebar-inst">NIT Warangal</p>
-
-    <hr class="sidebar-divider">
-
-    <p class="sidebar-section-label">Contact</p>
-    <ul class="contact-list">
-      <li>
-        <a href="mailto:jp23ecb0f01@student.nitw.ac.in">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88Z"/></svg>
-          jp23ecb0f01@student.nitw.ac.in
-        </a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/jyothsna-kandarpa/" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
-          LinkedIn
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/jypkaa" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          GitHub
-        </a>
-      </li>
-    </ul>
-
-    <hr class="sidebar-divider">
-
-    <p class="sidebar-section-label">Interests</p>
-    <ul class="interest-list">
-      <li>VLSI Design</li>
-      <li>RFIC</li>
-      <li>Computer architechture</li>
-      <li>RISC-V</li>
-    </ul>
-
-    <hr class="sidebar-divider">
-
-    <p class="sidebar-section-label">Education</p>
-    <div class="edu-item">
-      <div class="edu-degree">B.Tech, ECE</div>
-      <div class="edu-school">NIT Warangal</div>
-      <div class="edu-year">2023 – Present</div>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="split">
+        <div class="split-heading"><h1>Skills</h1></div>
+        <div class="split-body">
+          <div class="skills-grid">
+            <div class="skill-card">
+              <i class="fas fa-code"></i>
+              <h3>Languages</h3>
+              <p>Verilog, Python, C++, Tcl</p>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-toolbox"></i>
+              <h3>Tools</h3>
+              <p>Xilinx Vivado, QuestaSim, MATLAB, LTspice</p>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-microchip"></i>
+              <h3>Open Source EDA</h3>
+              <p>OpenLane, OpenROAD, Yosys, Magic, ngspice, KLayout</p>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-book"></i>
+              <h3>Coursework</h3>
+              <p>RF IC Design, Low Power VLSI, CMOS VLSI Design, Digital Circuit Design, Linear Integrated Circuits Applications, Electronic Circuits and Design</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </aside>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="split">
+        <div class="split-heading"><h1>Projects</h1></div>
+        <div class="split-body">
 
-  <!-- MAIN CONTENT -->
-  <main class="main">
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Integer PLL &mdash; VCO &amp; Charge Pump (L-band)</span>
+            </div>
+            <div class="stream-meta">RFIC &middot; ADS &middot; SiGe HBT</div>
+            <div class="stream-body">
+              <p>Designed and simulated a VCO and charge pump for an Integer-N PLL targeting 1.1&ndash;1.5 GHz (L-band) using Keysight ADS. The LC-tank VCO with varactor tuning achieved a 301 MHz tuning range and oscillation at 1.282 GHz, with phase noise of &minus;120 dBc/Hz at 1 kHz &mdash; well below the &minus;85 dBc/Hz spec.</p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">PLL</span><span class="tag">VCO</span><span class="tag">Charge Pump</span><span class="tag">ADS</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://drive.google.com/file/d/1pMSlum6Lv61E90CHqbSfUBiKA7VCjfhm/view?usp=sharing" target="_blank"><i class="far fa-file-alt"></i>Project Report</a>
+            </div>
+          </div>
 
-    <!-- ABOUT -->
-    <section class="about-section" id="about">
-      <p>
-        Hello! I'm a fourth-year Electronics and Communication Engineering student at <strong>NIT Warangal</strong>, drawn to the intersection of hardware and artificial intelligence. 
-      </p>
-      <p>
-        My work spans across designing IC's, writing verilog codes and implementing on FPGA. Outside the lab, I lead technical initiatives, stargaze through telescopes, and keep learning because the curiosity never stops.
-      </p>
-    </section>
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Fast HUB Floating-Point Adder</span>
+            </div>
+            <div class="stream-meta">Verilog &middot; FPGA</div>
+            <div class="stream-body">
+              <p>Designed a Half-Unit-Biased double-path floating-point adder with configurable mantissa (10&ndash;60 bits) and exponent (6&ndash;12 bits). Achieved 34% average speedup over single-path designs on Xilinx Virtex-6, with only 26% area and 13% energy overhead.</p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Verilog</span><span class="tag">FPGA</span><span class="tag">Computer Arithmetic</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://drive.google.com/file/d/1ED-jK-lbkrHVNkoqiCJvIxsTSPj1x5Db/view?usp=sharing" target="_blank"><i class="far fa-file-alt"></i>Report</a>
+            </div>
+          </div>
 
-    <!-- EXPERIENCE -->
-    <section class="section" id="experience">
-      <h2 class="section-heading">Experience</h2>
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Grocery Sales Forecasting</span>
+            </div>
+            <div class="stream-meta">Machine Learning &middot; KNIME</div>
+            <div class="stream-body">
+              <p>Built a regression pipeline on KNIME to forecast retail sales from product and store attributes, reaching 89% accuracy. Identified product category and store location as the two strongest predictors.</p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">KNIME</span><span class="tag">Regression</span><span class="tag">Data Analysis</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://drive.google.com/file/d/180N-IBufbi_o4Rr3O0GtrYWkoZK-pKzt/view?usp=sharing" target="_blank"><i class="far fa-file-alt"></i>Report</a>
+            </div>
+          </div>
 
-      <div class="exp-card">
-        <div class="exp-header">
-          <span class="exp-title">Summer Research Intern</span>
-          <span class="exp-date">May – Jul 2025</span>
-        </div>
-        <div class="exp-org">IITM C-DOT Samgnya Technologies Foundation · Chennai</div>
-        <div class="exp-body">
-          <ul>
-            <li>Worked at IIT Madras's Centre for Quantum Information, Communication and Computing (CQuICC) under Prof. Anil Prabhakar, on characterising entanglement in fibre-based photon sources.</li>
-            <li>Set up and tested a polarisation beam splitter (PBS) end-to-end, then built an On–Off Keying optical link to evaluate its performance under real signal conditions.</li>
-            <li>Used motorised polarisation controllers to automate alignment, reducing manual calibration overhead significantly.</li>
-          </ul>
-        </div>
-        <div class="exp-footer">
-          <span class="tag">Quantum Optics</span>
-          <span class="tag">Photon Entanglement</span>
-          <span class="tag">Optical Instrumentation</span>
-          <a href="https://github.com/jypkaa/Entanglement-characterisation---summer-internship/blob/main/Jyothsna_Final_internship_report%20(2).pdf"
-             target="_blank" class="doc-link">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6H9.75A1.75 1.75 0 0 1 8 4.25V1.5H3.75Zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06ZM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25V1.75Z"/></svg>
-            Internship Report
-          </a>
         </div>
       </div>
+    </div>
+  </section>
 
-    </section>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="split">
+        <div class="split-heading"><h1>Experience</h1></div>
+        <div class="split-body">
 
-    <!-- ACHIEVEMENTS -->
-    <section class="section" id="achievements">
-      <h2 class="section-heading">Achievements</h2>
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Summer Research Intern</span>
+              <span class="stream-date">May &ndash; Jul 2025</span>
+            </div>
+            <div class="stream-meta">IITM C-DOT Samgnya Technologies Foundation &middot; Chennai</div>
+            <div class="stream-body">
+              <ul>
+                <li>Worked at IIT Madras's Centre for Quantum Information, Communication and Computing (CQuICC) under Prof. Anil Prabhakar, on characterising entanglement in fibre-based photon sources.</li>
+                <li>Set up and tested a polarisation beam splitter (PBS) end-to-end, then built an On&ndash;Off Keying optical link to evaluate its performance under real signal conditions.</li>
+                <li>Used motorised polarisation controllers to automate alignment, reducing manual calibration overhead significantly.</li>
+              </ul>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Quantum Optics</span><span class="tag">Photon Entanglement</span><span class="tag">Optical Instrumentation</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://github.com/jypkaa/Entanglement-characterisation---summer-internship/blob/main/Jyothsna_Final_internship_report%20(2).pdf" target="_blank"><i class="far fa-file-alt"></i>Internship Report</a>
+            </div>
+          </div>
 
-      <div class="exp-card">
-        <div class="exp-header">
-          <span class="exp-title">DVCon India 2026 Design Contest</span>
-          <span class="exp-date">Feb 2026 – Present</span>
-        </div>
-        <div class="exp-org">Qualified for Semi-Finals</div>
-        <div class="exp-body">
-          <ul>
-            <li>Currently competing in Stage 3 of the DVCon India Design Contest, ranking among the top 35 teams out of 600+ participating teams.</li>
-            <li>Developed a task-aware image identification ML model using the COCO dataset.</li>
-            <li>Implemented an AXI4-compliant hardware accelerator for 16×16 matrix multiplication, designed for integration with the VEGA SoC.</li>
-            <li>Currently integrating the custom accelerator IP into the VEGA SoC using a bare-metal application.</li>
-          </ul>
-        </div>
-        <div class="exp-footer">
-          <span class="tag">RTL Design</span>
-          <span class="tag">AXI4</span>
-          <span class="tag">SoC Integration</span>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="exp-card">
-        <div class="exp-header">
-          <span class="exp-title">Smart India Hackathon — Hardware</span>
-          <span class="exp-date">Sep 2024</span>
-        </div>
-        <div class="exp-org">Campus Qualified · Team Drona</div>
-        <div class="exp-body">
-          <ul>
-            <li>Presented a drone-based system for detecting survivors in collapsed-structure search-and-rescue operations.</li>
-            <li>Proposed a module that integrates multiple sensors and contains a navigation module for integration with existing drones to simplify rescue operations.</li>
-            <li>Developed a prototype ML model for fast, real-time onboard data processing.</li>
-          </ul>
-        </div>
-        <div class="exp-footer">
-          <span class="tag">Drone Systems</span>
-          <span class="tag">Hardware Design</span>
-          <span class="tag">Team Leadership</span>
-          <a href="https://docs.google.com/presentation/d/1TmBZDOf2Xfn3uEAeeuWA9ltOZfo2BpbV/edit?usp=sharing&ouid=109696522093421934458&rtpof=true&sd=true" target="_blank" class="doc-link">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6H9.75A1.75 1.75 0 0 1 8 4.25V1.5H3.75Zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06ZM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25V1.75Z"/></svg>
-            Proposal
-          </a>
-        </div>
-      </div>
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="container">
+      <div class="split">
+        <div class="split-heading"><h1>Achievements</h1></div>
+        <div class="split-body">
 
-    </section>
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">DVCon India 2026 Design Contest</span>
+              <span class="stream-date">Feb 2026 &ndash; Present</span>
+            </div>
+            <div class="stream-meta">Qualified for Semi-Finals</div>
+            <div class="stream-body">
+              <ul>
+                <li>Currently competing in Stage 3 of the DVCon India Design Contest, ranking among the top 35 teams out of 600+ participating teams.</li>
+                <li>Developed a task-aware image identification ML model using the COCO dataset.</li>
+                <li>Implemented an AXI4-compliant hardware accelerator for 16&times;16 matrix multiplication, designed for integration with the VEGA SoC.</li>
+                <li>Currently integrating the custom accelerator IP into the VEGA SoC using a bare-metal application.</li>
+              </ul>
+            </div>
+            <div class="tag-row">
+              <span class="tag">RTL Design</span><span class="tag">AXI4</span><span class="tag">SoC Integration</span>
+            </div>
+          </div>
 
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <h2 class="section-heading">Projects</h2>
-      <div class="projects-grid">
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Smart India Hackathon &mdash; Hardware</span>
+              <span class="stream-date">Sep 2024</span>
+            </div>
+            <div class="stream-meta">Campus Qualified &middot; Team Drona</div>
+            <div class="stream-body">
+              <ul>
+                <li>Presented a drone-based system for detecting survivors in collapsed-structure search-and-rescue operations.</li>
+                <li>Proposed a module that integrates multiple sensors and contains a navigation module for integration with existing drones to simplify rescue operations.</li>
+                <li>Developed a prototype ML model for fast, real-time onboard data processing.</li>
+              </ul>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Drone Systems</span><span class="tag">Hardware Design</span><span class="tag">Team Leadership</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://docs.google.com/presentation/d/1TmBZDOf2Xfn3uEAeeuWA9ltOZfo2BpbV/edit?usp=sharing&ouid=109696522093421934458&rtpof=true&sd=true" target="_blank"><i class="far fa-file-powerpoint"></i>Proposal</a>
+            </div>
+          </div>
 
-        <!-- RFIC PROJECT — added at top -->
-        <div class="project-card">
-          <div class="project-card-body">
-            <div class="project-tech">RFIC · ADS · SiGe HBT</div>
-            <div class="project-title">Integer PLL — VCO & Charge Pump (L-band)</div>
-            <div class="project-desc">Designed and simulated a VCO and charge pump for an Integer-N PLL targeting 1.1–1.5 GHz (L-band) using Keysight ADS. The LC-tank VCO with varactor tuning achieved a 301 MHz tuning range and oscillation at 1.282 GHz, with phase noise of −120 dBc/Hz at 1 kHz — well below the −85 dBc/Hz spec.</div>
-          </div>
-          <div class="project-card-footer">
-            <span class="tag">PLL</span>
-            <span class="tag">VCO</span>
-            <span class="tag">Charge Pump</span>
-            <span class="tag">ADS</span>
-            <a href="https://drive.google.com/file/d/1pMSlum6Lv61E90CHqbSfUBiKA7VCjfhm/view?usp=sharing"
-               target="_blank" class="doc-link">
-              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6H9.75A1.75 1.75 0 0 1 8 4.25V1.5H3.75Zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06ZM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25V1.75Z"/></svg>
-              Project Report
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-body">
-            <div class="project-tech">Verilog · FPGA</div>
-            <div class="project-title">Fast HUB Floating-Point Adder</div>
-            <div class="project-desc">Designed a Half-Unit-Biased double-path floating-point adder with configurable mantissa (10–60 bits) and exponent (6–12 bits). Achieved 34% average speedup over single-path designs on Xilinx Virtex-6, with only 26% area and 13% energy overhead.</div>
-          </div>
-          <div class="project-card-footer">
-            <span class="tag">Verilog</span>
-            <span class="tag">FPGA</span>
-            <span class="tag">Computer Arithmetic</span>
-            <a href="https://drive.google.com/file/d/1ED-jK-lbkrHVNkoqiCJvIxsTSPj1x5Db/view?usp=sharing"
-               target="_blank" class="doc-link">
-              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6H9.75A1.75 1.75 0 0 1 8 4.25V1.5H3.75Zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06ZM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25V1.75Z"/></svg>
-              Report
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-body">
-            <div class="project-tech">Machine Learning · KNIME</div>
-            <div class="project-title">Grocery Sales Forecasting</div>
-            <div class="project-desc">Built a regression pipeline on KNIME to forecast retail sales from product and store attributes, reaching 89% accuracy. Identified product category and store location as the two strongest predictors.</div>
-          </div>
-          <div class="project-card-footer">
-            <span class="tag">KNIME</span>
-            <span class="tag">Regression</span>
-            <span class="tag">Data Analysis</span>
-            <a href="https://drive.google.com/file/d/180N-IBufbi_o4Rr3O0GtrYWkoZK-pKzt/view?usp=sharing"
-               target="_blank" class="doc-link">
-              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6H9.75A1.75 1.75 0 0 1 8 4.25V1.5H3.75Zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06ZM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25V1.75Z"/></svg>
-              Report
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-      <h2 class="section-heading">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-block">
-          <div class="skill-block-label">Languages</div>
-          <div class="skill-pills">
-            <span class="spill">Verilog</span>
-            <span class="spill">Python</span>
-            <span class="spill">C++</span>
-            <span class="spill">Tcl</span>
-          </div>
-        </div>
-        <div class="skill-block">
-          <div class="skill-block-label">Tools</div>
-          <div class="skill-pills">
-            <span class="spill">Xilinx Vivado</span>
-            <span class="spill">QuestaSim</span>
-            <span class="spill">MATLAB</span>
-            <span class="spill">LTspice</span>
-          </div>
-        </div>
-        <div class="skill-block">
-          <div class="skill-block-label">Open Source EDA</div>
-          <div class="skill-pills">
-            <span class="spill">OpenLane</span>
-            <span class="spill">OpenROAD</span>
-            <span class="spill">Yosys</span>
-            <span class="spill">Magic</span>
-            <span class="spill">ngspice</span>
-            <span class="spill">KLayout</span>
-          </div>
-        </div>
-        <div class="skill-block">
-          <div class="skill-block-label">Coursework</div>
-          <div class="skill-pills">
-            <span class="spill">RF IC Design</span>
-            <span class="spill">Low Power VLSI</span>
-            <span class="spill">CMOS VLSI Design</span>
-            <span class="spill">Digital Circuit Design</span>
-            <span class="spill">Linear Integrated Circuits Applications</span>
-            <span class="spill">Electronic Circuits and Design</span>
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
-</div>
+</main>
 
-<!-- FOOTER -->
 <footer>
-  <p>Jyothsna Padma Kandarpa · <a href="mailto:jp23ecb0f01@student.nitw.ac.in">jp23ecb0f01@student.nitw.ac.in</a> · NIT Warangal</p>
+  <p>Jyothsna Padma Kandarpa &middot; <a href="mailto:jp23ecb0f01@student.nitw.ac.in">jp23ecb0f01@student.nitw.ac.in</a> &middot; NIT Warangal</p>
+  <a href="#top" id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
 </footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
