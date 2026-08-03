@@ -152,8 +152,8 @@
 
         <div class="about-col">
           <h1>About me</h1>
-          <p>Hi! I'm a final-year Electronics and Communication Engineering student at <strong>NIT Warangal</strong>. I like working on chip design &mdash; from writing the code that describes a circuit to seeing it turn into an actual layout.</p>
-          <p>I design circuits, write Verilog code, and test my designs on FPGAs. Outside the lab, I take part in technical clubs, look at stars through telescopes, and keep learning new things.</p>
+          <p>Hi! I'm a final-year Electronics and Communication Engineering student at <strong>NIT Warangal</strong>. I am intrested in Physical design and design verification work and have done many projects to better my skills and expand my horizons.</p>
+          <p>I have hands on experience with open source EDA tools, well versed with verilog and have very strong basics for digital circuit deisgn and testing.</p>
 
           <div class="about-sub-row">
             <div class="about-sub">
@@ -181,6 +181,80 @@
 
           <div class="stream-item">
             <div class="stream-header">
+              <span class="stream-title">RTL-to-GDSII Physical Design of a PicoRV32 RISC-V SoC</span>
+              <span class="stream-date">June 2026</span>
+            </div>
+            <div class="stream-meta">OpenLane &middot; SKY130A &middot; Physical Design</div>
+            <div class="stream-body">
+              <ul>
+                <li>Integrated a PicoRV32-based RISC-V SoC with an AXI-Lite interconnect and decoder, ROM, SRAM, and UART peripherals, then carried it through OpenLane's full RTL-to-GDSII flow on the SKY130A PDK at 50 MHz.</li>
+                <li>Synthesized 19,218 cells at 213,599 &micro;m&sup2;, closed post-route timing at +14.38 ns setup and +0.48 ns hold slack with clean DRC/LVS signoff, and streamed out a foundry-ready GDSII at 27.4 mW of total power.</li>
+              </ul>
+            </div>
+            <div class="tag-row">
+              <span class="tag">OpenLane</span><span class="tag">SKY130</span><span class="tag">RISC-V</span><span class="tag">Physical Design</span>
+            </div>
+          </div>
+
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Smart Gloves for the Impaired</span>
+              <span class="stream-date">March 2026</span>
+            </div>
+            <div class="stream-meta">Arduino Nano &middot; Embedded Systems</div>
+            <div class="stream-body">
+              <ul>
+                <li>Built a sign language to speech glove using an Arduino Nano, flex sensors to detect finger bending, a 16x2 LCD with I2C connection to display the recognized letters, and a speaker for voice output.</li>
+                <li>Mapped different finger bend patterns to corresponding letters and voice outputs in real time.</li>
+              </ul>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Arduino</span><span class="tag">Flex Sensors</span><span class="tag">Assistive Tech</span>
+            </div>
+          </div>
+
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">GPU Acceleration of Sobel Edge Detection using CUDA</span>
+              <span class="stream-date">Jan 2026</span>
+            </div>
+            <div class="stream-meta">CUDA &middot; GPU Programming</div>
+            <div class="stream-body">
+              <ul>
+                <li>Implemented and benchmarked naive and shared-memory-tiled CUDA kernels for Sobel edge detection (3&times;3 and 5&times;5), achieving up to 3,200&times; speedup over a CPU baseline.</li>
+                <li>Used Nsight Compute and found that shared-memory tiling underperformed the naive kernel at small scale due to high L1/L2 cache absorption, and validated the crossover at larger image sizes through rigorous statistical benchmarking.</li>
+              </ul>
+            </div>
+            <div class="tag-row">
+              <span class="tag">CUDA</span><span class="tag">Nsight Compute</span><span class="tag">Image Processing</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://github.com/jypkaa/GPU-Accelerated-Sobel-Edge-Detection-CUDA-" target="_blank"><i class="fab fa-github"></i>Code</a>
+            </div>
+          </div>
+
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Digital Health Care Monitoring System</span>
+              <span class="stream-date">Nov 2025</span>
+            </div>
+            <div class="stream-meta">Arduino UNO &middot; Embedded Systems</div>
+            <div class="stream-body">
+              <ul>
+                <li>Built a real-time pulse rate and body temperature monitor using an Arduino UNO, a Pulse Sensor for detecting heartbeats via optical light reflection, and an LM35 sensor for body temperature.</li>
+                <li>Processed the pulse waveform to compute beats per minute and displayed live BPM and temperature readings on a 16x2 LCD.</li>
+              </ul>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Arduino</span><span class="tag">Sensors</span><span class="tag">Healthcare</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://drive.google.com/file/d/14subtZ2Q2CIgWVsL6fydLgIC--BLWGEu/view?usp=sharing" target="_blank"><i class="far fa-file-alt"></i>Report</a>
+            </div>
+          </div>
+
+          <div class="stream-item">
+            <div class="stream-header">
               <span class="stream-title">Integer PLL &mdash; VCO &amp; Charge Pump (L-band)</span>
             </div>
             <div class="stream-meta">RFIC &middot; ADS &middot; SiGe HBT</div>
@@ -197,7 +271,24 @@
 
           <div class="stream-item">
             <div class="stream-header">
+              <span class="stream-title">Single-Cycle RISC-V Processor</span>
+            </div>
+            <div class="stream-meta">Verilog &middot; Computer Architecture</div>
+            <div class="stream-body">
+              <p>Designed and implemented a single-cycle RISC-V processor core in Verilog, covering the datapath and control logic for the base instruction set.</p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">RISC-V</span><span class="tag">Verilog</span><span class="tag">Processor Design</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://github.com/jypkaa/single-cycle-processor-RISCV" target="_blank"><i class="fab fa-github"></i>Code</a>
+            </div>
+          </div>
+
+          <div class="stream-item">
+            <div class="stream-header">
               <span class="stream-title">Fast HUB Floating-Point Adder</span>
+              <span class="stream-date">March 2025</span>
             </div>
             <div class="stream-meta">Verilog &middot; FPGA</div>
             <div class="stream-body">
@@ -208,6 +299,23 @@
             </div>
             <div class="btn-links">
               <a class="btn-link" href="https://drive.google.com/file/d/1ED-jK-lbkrHVNkoqiCJvIxsTSPj1x5Db/view?usp=sharing" target="_blank"><i class="far fa-file-alt"></i>Report</a>
+            </div>
+          </div>
+
+          <div class="stream-item">
+            <div class="stream-header">
+              <span class="stream-title">Real Time Activity Detection App</span>
+              <span class="stream-date">April 2025</span>
+            </div>
+            <div class="stream-meta">Android Studio &middot; TFLite</div>
+            <div class="stream-body">
+              <p>Built an app in Android Studio for real-time activity classification such as Sit, Walk, Upstairs, Downstairs by using a CNN TFLite model running on live accelerometer and gyroscope sensor data.</p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Android</span><span class="tag">TFLite</span><span class="tag">CNN</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://github.com/jypkaa/ertos_app" target="_blank"><i class="fab fa-github"></i>Code</a>
             </div>
           </div>
 
@@ -288,6 +396,9 @@
             </div>
             <div class="tag-row">
               <span class="tag">RTL Design</span><span class="tag">AXI4</span><span class="tag">SoC Integration</span>
+            </div>
+            <div class="btn-links">
+              <a class="btn-link" href="https://github.com/jypkaa/Task-Based-Image-identification--DVCON" target="_blank"><i class="fab fa-github"></i>Code</a>
             </div>
           </div>
 
